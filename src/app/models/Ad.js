@@ -9,7 +9,7 @@ const Ad = new mongoose.Schema({
     type: String,
     required: true
   },
-  authot: {
+  author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true

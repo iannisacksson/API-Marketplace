@@ -12,11 +12,18 @@ routes.post('/sessions', controllers.SessionController.store)
 // Garante que toda rota apartir desse middle, não aceite se o usuário não esteja autenticado
 routes.use(authMiddleware)
 
-// Ads
+/**
+ * Ads
+ */
 routes.get('/ads', controllers.AdController.index)
 routes.get('/ads/:id', controllers.AdController.show)
 routes.post('/ads', controllers.AdController.store)
 routes.put('/ads/:id', controllers.AdController.update)
 routes.delete('/ads/:id', controllers.AdController.destroy)
+
+/**
+ * Purchases
+ */
+routes.post('/purchases', controllers.PurchaseController.store)
 
 module.exports = routes

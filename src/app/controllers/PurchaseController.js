@@ -11,11 +11,13 @@ class PurchaseController {
     const purchaseAd = await Ad.findById(ad).populate('author')
     const user = await User.findById(req.userId)
 
+    // Grava a intenção de compra no Model Purchase
     const purchase = await Purchase.create({
       user,
       ad: purchaseAd
     })
 
+    // Envia o email
     Queue.create(PurchaseMail.key, {
       ad: purchaseAd,
       user,
